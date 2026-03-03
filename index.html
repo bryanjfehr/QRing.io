@@ -10,12 +10,12 @@
 
     <header class="w-full relative z-50 bg-gray-50">
         <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600">QRing.io</a>
+            <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600 hacker-text" data-value="QRing.io">QRing.io</a>
             
             <div class="space-x-6 hidden md:flex items-center">
-                <a href="benchmarks.html" class="hover:text-blue-600 font-medium">Benchmarks</a>
-                <a href="paper.html" class="hover:text-blue-600 font-medium">arXiv</a>
-                <a href="team.html" class="hover:text-blue-600 font-medium">Team</a>
+                <a href="benchmarks.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Benchmarks">Benchmarks</a>
+                <a href="paper.html" class="hover:text-blue-600 font-medium hacker-text" data-value="arXiv">arXiv</a>
+                <a href="team.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Team">Team</a>
             </div>
 
             <button id="mobile-menu-btn" class="md:hidden text-gray-900 focus:outline-none">
@@ -35,7 +35,7 @@
     </header>
 
     <main class="flex-grow">
-        <header class="py-20 text-center max-w-4xl mx-auto px-4">
+        <header class="py-20 text-center max-w-4xl mx-auto px-4 reveal">
             <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
                 Post-Quantum Privacy.<br>Without the Bottlenecks.
             </h1>
@@ -44,16 +44,16 @@
             </p>
             
             <div class="bg-blue-600 text-white p-8 rounded-2xl shadow-xl inline-block mt-4">
-                <h2 class="text-sm uppercase tracking-widest mb-4 font-semibold">Mainnet Launch: March 7th</h2>
+                <h2 class="text-sm uppercase tracking-widest mb-4 font-semibold hacker-text cursor-default" data-value="Mainnet Launch: March 7th">Mainnet Launch: March 7th</h2>
                 <div id="countdown" class="text-4xl md:text-5xl font-mono font-bold tracking-tight">
                     00d 00h 00m 00s
                 </div>
             </div>
         </header>
 
-        <section class="py-20 bg-gray-900 text-white px-4 mt-12">
+        <section class="py-20 bg-gray-900 text-white px-4 mt-12 reveal">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red-400">The "Harvest Now, Decrypt Later" Threat</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red-400 hacker-text cursor-default" data-value="The &quot;Harvest Now, Decrypt Later&quot; Threat">The "Harvest Now, Decrypt Later" Threat</h2>
                 <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
                     <p>
                         Waiting for "Q-Day" is a losing strategy. "Harvest Now, Decrypt Later" (HNDL) is an active, state-level reality. Adversaries are stockpiling encrypted blockchain data today, knowing that cryptographically relevant quantum computers will eventually break elliptic-curve cryptography.
@@ -70,70 +70,3 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-auto bg-gray-50">
-        &copy; 2026 QRing.io. All rights reserved.
-    </footer>
-
-    <script>
-        const launchDate = new Date("March 7, 2026 12:00:00").getTime();
-
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const d = String(days).padStart(2, '0');
-            const h = String(hours).padStart(2, '0');
-            const m = String(minutes).padStart(2, '0');
-            const s = String(seconds).padStart(2, '0');
-
-            document.getElementById("countdown").innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "NETWORK LIVE";
-            }
-        }, 1000);
-    </script>
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-    </script>
-    <script>
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // When the element comes into view, fade it in and slide it up
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                    observer.unobserve(entry.target); // Only animate once
-                }
-            });
-        }, observerOptions);
-
-        // Find all elements with the 'reveal' class and set their initial hidden state
-        document.querySelectorAll('.reveal').forEach((el) => {
-            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
