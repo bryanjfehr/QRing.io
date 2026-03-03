@@ -58,5 +58,29 @@
             menu.classList.toggle('hidden');
         });
     </script>
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // When the element comes into view, fade it in and slide it up
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        // Find all elements with the 'reveal' class and set their initial hidden state
+        document.querySelectorAll('.reveal').forEach((el) => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
