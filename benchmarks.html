@@ -94,6 +94,13 @@
     <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-auto">
         &copy; 2026 QRing.io. All rights reserved.
     </footer>
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
