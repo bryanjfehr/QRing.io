@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRing.io | Post-Quantum Monero</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-tighter text-blue-600">QRing.io</div>
+        <div class="space-x-6 hidden md:block">
+            <a href="#threat" class="hover:text-blue-600 font-medium">The Threat</a>
+            <a href="#benchmarks" class="hover:text-blue-600 font-medium">Benchmarks</a>
+            <a href="#paper" class="hover:text-blue-600 font-medium">arXiv</a>
+            <a href="#team" class="hover:text-blue-600 font-medium">Team</a>
+        </div>
+    </nav>
+
+    <header class="py-20 text-center max-w-4xl mx-auto px-4">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
+            Post-Quantum Privacy.<br>Without the Bottlenecks.
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed text-left md:text-center">
+            QRing is the first production-ready, post-quantum hardfork of Monero. Built on NIST-standardized lattice cryptography (Kyber768 and Dilithium3) and advanced protocols like MatRiCT+, LACT+, and Lantern. We didn't just harden the network against quantum attacks—we re-engineered it to beat legacy Monero on size, speed, and scalability, complete with built-in regulatory tooling for Tier-1 exchanges.
+        </p>
+        
+        <div class="bg-blue-600 text-white p-8 rounded-2xl shadow-xl inline-block">
+            <h2 class="text-sm uppercase tracking-widest mb-4 font-semibold">Mainnet Launch: March 7th</h2>
+            <div id="countdown" class="text-4xl md:text-5xl font-mono font-bold tracking-tight">
+                00d 00h 00m 00s
+            </div>
+        </div>
+    </header>
+
+    <section id="threat" class="py-20 bg-gray-900 text-white px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red-400">The "Harvest Now, Decrypt Later" Threat</h2>
+            <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                <p>
+                    Waiting for "Q-Day" is a losing strategy. "Harvest Now, Decrypt Later" (HNDL) is an active, state-level reality. Adversaries are stockpiling encrypted blockchain data today, knowing that cryptographically relevant quantum computers will eventually break elliptic-curve cryptography.
+                </p>
+                <p>
+                    For privacy coins relying on legacy Monero-style cryptography, the math is unforgiving. A quantum break means <strong>retroactive de-anonymization of the entire historical ledger and silent supply inflation</strong>.
+                </p>
+                <div class="bg-gray-800 p-6 border-l-4 border-red-500 rounded text-base mt-8">
+                    <p class="mb-2"><strong>The Reality Check:</strong></p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>The 2026 Thales Data Threat Report cites HNDL as the top security concern for 61% of organizations.</li>
+                        <li>Citi Institute warns of trillions in potential economic damage from a single quantum breach.</li>
+                        <li>Data harvested today is permanently vulnerable unless the network migrates immediately.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benchmarks" class="py-20 bg-white px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Post-Quantum Without Compromise</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Full post-quantum security shouldn't kill usability. Through Improved Plantard arithmetic, AVX-512/ARMv9 acceleration, and LACT+ aggregation, QRing is objectively faster and lighter than the network it replaces.
+                </p>
+                <p class="text-sm text-gray-500 mt-2 italic">*Results based on 10-input/10-output stress tests on consumer-grade hardware.</p>
+            </div>
+            
+            <div class="overflow-x-auto shadow-lg rounded-xl border border-gray-100 mb-8">
+                <table class="min-w-full bg-white text-left">
+                    <thead class="bg-gray-50 text-gray-800 border-b border-gray-200">
+                        <tr>
+                            <th class="py-4 px-6 font-semibold">Metric</th>
+                            <th class="py-4 px-6 font-semibold text-blue-600 text-lg">QRing (Post-Quantum)</th>
+                            <th class="py-4 px-6 font-semibold text-gray-500 text-lg">Vanilla Monero</th>
+                            <th class="py-4 px-6 font-semibold">Improvement</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="py-4 px-6 font-medium">Serialized Tx Size</td>
+                            <td class="py-4 px-6 font-bold text-gray-900">78 KB</td>
+                            <td class="py-4 px-6">~116 KB</td>
+                            <td class="py-4 px-6 text-green-600 font-semibold">33% Smaller</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="py-4 px-6 font-medium">Tx Verification Time</td>
+                            <td class="py-4 px-6 font-bold text-gray-900">8.1 ms</td>
+                            <td class="py-4 px-6">12.4 ms</td>
+                            <td class="py-4 px-6 text-green-600 font-semibold">35% Faster</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="py-4 px-6 font-medium">Block Propagation Latency</td>
+                            <td class="py-4 px-6 font-bold text-gray-900">42 ms</td>
+                            <td class="py-4 px-6">150 ms</td>
+                            <td class="py-4 px-6 text-green-600 font-semibold">72% Faster</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="py-4 px-6 font-medium">1M Block Chain Size (Proj.)</td>
+                            <td class="py-4 px-6 font-bold text-gray-900">743 GB</td>
+                            <td class="py-4 px-6">~1,105 GB</td>
+                            <td class="py-4 px-6 text-green-600 font-semibold">32.8% Smaller</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 text-center">
+                <h3 class="font-bold text-blue-900 mb-2">Massive Wallet Sync Upgrades</h3>
+                <p class="text-blue-800">
+                    Scanning 500,000 blocks completes in just <strong>3.1 minutes</strong>. By implementing 1-byte view tags, we achieved a <strong>100x speedup</strong> over legacy syncing.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="paper" class="py-20 bg-gray-50 px-4 text-center border-t border-gray-200">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6">Read the Architecture Paper</h2>
+            <p class="text-gray-600 mb-8">Dive deep into the mathematics, proofs, and engineering architecture behind QRing in our latest preprint.</p>
+            <a href="qring-paper.pdf" target="_blank" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition shadow-lg">
+                View on arXiv / Download PDF
+            </a>
+        </div>
+    </section>
+
+    <section id="team" class="py-20 bg-white border-t border-gray-200 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Core Contributors</h2>
+            <div class="flex flex-col md:flex-row justify-center gap-12">
+                
+                <div class="flex-1">
+                    <div class="w-32 h-32 bg-gray-900 text-white rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold shadow-md">
+                        BJF
+                    </div>
+                    <h3 class="text-xl font-bold">Bryan J Fehr</h3>
+                    <p class="text-blue-600 font-medium mb-2">Lead Architect / Lead Developer / Founder</p>
+                    <div class="flex justify-center space-x-4 mt-3">
+                        <a href="#" class="text-gray-500 hover:text-gray-900 transition text-sm font-medium">GitHub</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition text-sm font-medium">Twitter/X</a>
+                    </div>
+                </div>
+
+                <div class="flex-1">
+                    <div class="w-32 h-32 bg-gray-900 text-white rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold shadow-md">
+                        JE
+                    </div>
+                    <h3 class="text-xl font-bold">Jeff Elder</h3>
+                    <p class="text-blue-600 font-medium mb-2">Web Developer / Chief Marketing Officer</p>
+                    <div class="flex justify-center space-x-4 mt-3">
+                        <a href="#" class="text-gray-500 hover:text-gray-900 transition text-sm font-medium">GitHub</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition text-sm font-medium">Twitter/X</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-gray-500 text-sm bg-gray-50 border-t border-gray-200">
+        &copy; 2026 QRing.io. All rights reserved.
+    </footer>
+<script>
+        // Set the target launch date (Adjust the time/timezone if needed)
+        const launchDate = new Date("March 7, 2026 12:00:00").getTime();
+
+        const timer = setInterval(function() {
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the launch date
+            const distance = launchDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Pad with leading zeros for a clean, static width
+            const d = String(days).padStart(2, '0');
+            const h = String(hours).padStart(2, '0');
+            const m = String(minutes).padStart(2, '0');
+            const s = String(seconds).padStart(2, '0');
+
+            // Output the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+
+            // If the countdown is over, clear the timer and show a launch message
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "TESTNET LIVE";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
